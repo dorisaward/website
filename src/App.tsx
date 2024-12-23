@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
-import styled from 'styled-components'
-import { Daw } from './assets/Daw'
+import { useEffect, useState } from 'react'
+import styled, { ThemeProvider } from 'styled-components'
+import { darkTheme, lightTheme } from './theme/theme'
+import { Home } from './pages/homepage/Home'
 
 const Container = styled.div`
   position: absolute;
@@ -8,7 +9,8 @@ const Container = styled.div`
   bottom: 0;
   width: 100%;
   text-align: center;
-  background-color: #cce6ff;
+  background-color: ${({ theme }) => theme.backgroundColour};
+  color: ${({ theme }) => theme.fontColour};
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -29,16 +31,24 @@ const displayAnimatedFaviconIfBrowserNotChrome = () => {
   }
 }
 
+enum theme {
+  light = 'LIGHT_THEME',
+  dark = 'DARK_THEME',
+}
+
 function App() {
+  const [selectedTheme, setSelectedTheme] = useState<theme>(theme.light)
   useEffect(displayAnimatedFaviconIfBrowserNotChrome)
 
+  const handleThemePress = () => setSelectedTheme(prevTheme => prevTheme === theme.light ? theme.dark : theme.light)
+
   return (
-    <Container>
-      <Daw width={'50%'}/>
-      <p>
-        Under construction
-      </p>
-    </Container>
+    <ThemeProvider theme={selectedTheme === theme.light ? lightTheme : darkTheme}>
+      <Container>
+        <Home />
+        <button onClick={handleThemePress}>Toggle Dark Mode</button>
+      </Container>
+    </ThemeProvider>
   )
 }
 
