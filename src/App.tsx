@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { darkTheme, lightTheme } from './theme/theme'
 import { Home } from './pages/homepage/Home'
+import { Switch } from './assets/Switch'
 
 const Container = styled.div`
   position: absolute;
@@ -46,7 +47,7 @@ function App() {
     <ThemeProvider theme={selectedTheme === theme.light ? lightTheme : darkTheme}>
       <Container>
         <Home />
-        <button onClick={handleThemePress}>Toggle Dark Mode</button>
+        <Switch checked={selectedTheme === theme.dark} onSwitch={handleThemePress} label={{ left: '🌘', right: '☀️' }} />
       </Container>
     </ThemeProvider>
   )
