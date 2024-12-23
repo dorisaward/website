@@ -1,13 +1,44 @@
-import './App.css'
+import { useEffect } from 'react'
+import styled from 'styled-components'
+import { Daw } from './assets/Daw'
+
+const Container = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #cce6ff;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+`
+
+const displayAnimatedFaviconIfBrowserNotChrome = () => {
+  const userAgentString = navigator.userAgent
+  const isChrome = userAgentString.indexOf("Chrome") > -1
+  const faviconElement: any = document.querySelector('link[rel=icon]')
+  if (!isChrome && !!faviconElement) {
+    faviconElement.href = '/src/assets/daw.gif'
+    faviconElement.type = 'image/gif'
+  }
+}
 
 function App() {
+  useEffect(displayAnimatedFaviconIfBrowserNotChrome)
 
   return (
-    <>
+    <Container>
+      <Daw width={'50%'}/>
       <p>
         Under construction
       </p>
-    </>
+    </Container>
   )
 }
 
