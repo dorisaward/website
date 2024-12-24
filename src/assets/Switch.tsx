@@ -37,17 +37,20 @@ type SwitchProps = {
     label: { left: string, right: string } | string
 }
 
-export const Switch = ({ checked, onSwitch, label }: SwitchProps) => (
-    <Container>
-        {typeof label !== 'string' ? <Text>{label.left}</Text> : <Text>{label}</Text>}
-        <StyledLabel htmlFor="checkbox" checked={checked}>
-            <input
-                id="checkbox"
-                type="checkbox"
-                checked={checked}
-                onChange={onSwitch}
-            />
-        </StyledLabel>
-        {typeof label !== 'string' && <Text>{label.right}</Text>}
-    </Container>
-)
+export const Switch = ({ checked, onSwitch, label }: SwitchProps) => {
+    const id = typeof label === 'string' ? label : (label.left + label.right)
+    return (
+        <Container key={'switch' + id}>
+            {typeof label !== 'string' ? <Text>{label.left}</Text> : <Text>{label}</Text>}
+            <StyledLabel htmlFor={id} checked={checked}>
+                <input
+                    id={id}
+                    type="checkbox"
+                    checked={checked}
+                    onChange={onSwitch}
+                />
+            </StyledLabel>
+            {typeof label !== 'string' && <Text>{label.right}</Text>}
+        </Container>
+    )
+}
