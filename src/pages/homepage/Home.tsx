@@ -1,5 +1,6 @@
 import styled, { useTheme } from "styled-components"
 import { Daw } from "../../assets/Daw"
+import { getText } from "../../assets/languages"
 
 const Text = styled.p`
     color: ${({ theme }) => theme.fontColour}
@@ -11,7 +12,7 @@ export const Home = () => {
         <>
             <Daw width={'50%'} stroke={theme.fontColour} />
             <Text>
-                Under construction
+                {getText('sorry')}
             </Text>
         </>
     )
