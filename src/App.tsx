@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import { darkTheme, lightTheme } from './theme/theme'
 import { Home } from './pages/homepage/Home'
 import { Switch } from './assets/Switch'
+import { languages, setLanguage, setUpLanguages } from './assets/languages'
 
 const Container = styled.div`
   position: absolute;
@@ -37,17 +38,25 @@ enum theme {
   dark = 'DARK_THEME',
 }
 
-function App() {
+const App = () => {
   const [selectedTheme, setSelectedTheme] = useState<theme>(theme.light)
+  const [selectedLang, setSelectedLang] = useState<languages>(languages.en)
   useEffect(displayAnimatedFaviconIfBrowserNotChrome)
+  useEffect(setUpLanguages)
 
   const handleThemePress = () => setSelectedTheme(prevTheme => prevTheme === theme.light ? theme.dark : theme.light)
+  const handleLangPress = () => setSelectedLang(prevLang => {
+    const newLang = prevLang === languages.en ? languages.th : languages.en
+    setLanguage(newLang)
+    return newLang
+  })
 
   return (
     <ThemeProvider theme={selectedTheme === theme.light ? lightTheme : darkTheme}>
       <Container>
         <Home />
         <Switch checked={selectedTheme === theme.dark} onSwitch={handleThemePress} label={{ left: '🌘', right: '☀️' }} />
+        <Switch checked={selectedLang === languages.en} onSwitch={handleLangPress} label={{ left: 'UK', right: 'TH' }} />
       </Container>
     </ThemeProvider>
   )
