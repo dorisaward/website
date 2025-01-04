@@ -1,6 +1,11 @@
 import { DefaultTheme } from 'styled-components'
 
-const commonTheme: DefaultTheme = {
+export enum theme {
+    light = 'LIGHT_THEME',
+    dark = 'DARK_THEME',
+}
+
+const commonTheme: Pick<DefaultTheme, 'padding' | 'switchOnColour' | 'switchOffColour'> = {
     padding: '5px',
     switchOnColour: 'green',
     switchOffColour: 'grey',
