@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
-import { darkTheme, lightTheme } from './theme/theme'
+import { darkTheme, lightTheme, theme } from './theme/theme'
 import { Home } from './pages/homepage/Home'
-import { Switch } from './assets/Switch'
+import { Sidebar } from './pages/sidebar/Sidebar.tsx'
 import { languages, setLanguage, setUpLanguages } from './assets/languages'
 
 const Container = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
   text-align: center;
   background-color: ${({ theme }) => theme.backgroundColour};
   color: ${({ theme }) => theme.fontColour};
@@ -33,11 +34,6 @@ const displayAnimatedFaviconIfBrowserNotChrome = () => {
   }
 }
 
-enum theme {
-  light = 'LIGHT_THEME',
-  dark = 'DARK_THEME',
-}
-
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState<theme>(theme.light)
   const [selectedLang, setSelectedLang] = useState<languages>(languages.en)
@@ -55,8 +51,7 @@ const App = () => {
     <ThemeProvider theme={selectedTheme === theme.light ? lightTheme : darkTheme}>
       <Container>
         <Home />
-        <Switch checked={selectedTheme === theme.dark} onSwitch={handleThemePress} label={{ left: '🌘', right: '☀️' }} />
-        <Switch checked={selectedLang === languages.en} onSwitch={handleLangPress} label={{ left: 'UK', right: 'TH' }} />
+        <Sidebar theme={{ selectedTheme, handleThemePress }} lang={{ selectedLang, handleLangPress }}/>
       </Container>
     </ThemeProvider>
   )
