@@ -1,10 +1,13 @@
 import styled from 'styled-components'
+import { useState } from 'react'
 import { Switch } from '../../assets/Switch.tsx'
 import { languages } from '../../assets/languages.ts'
 import { theme } from '../../theme/theme.ts'
+import { Hamburger } from '../../assets/Hamburger.tsx'
 
 const SWITCH_WIDTH = '120px'
 const MOBILE_WIDTH = '480px'
+const HAMBURGER_SIZE = 24
 
 const Container = styled.div`
     background: ${({ theme }) => theme.secondaryColour };
@@ -15,10 +18,30 @@ const Container = styled.div`
     height: 100%; // mobile-only
     top: 0;
     bottom: 0;
-    padding-top: 200px; // TODO better padding
+    padding-top: ${HAMBURGER_SIZE}px;
     @media only screen and (min-width: ${MOBILE_WIDTH}) {
         width: ${SWITCH_WIDTH};
         height: unset;
+    }
+    animation: slideIn 0.1s;
+    @keyframes slideIn {
+        from { margin-left: -100%; }
+        to { margin-left: 0; }
+    }
+`
+const HamburgerContainer = styled.div<{ isVisible: boolean }>`
+    background: white;
+    padding: ${({theme}) => theme.padding};
+    width: ${HAMBURGER_SIZE}px;
+    height: ${HAMBURGER_SIZE}px;
+    left: 0; // on mobile stays at top left
+    position: absolute;
+    top: 0;
+
+    @media only screen and (min-width: ${MOBILE_WIDTH}) {
+        ${({isVisible}) => isVisible && {
+            left: SWITCH_WIDTH, // moves with sidebar
+        }
     }
 `
 const ItemContainer = styled.div`
@@ -40,10 +63,23 @@ type SidebarProps = {
 export const Sidebar = ({
     theme: { selectedTheme, handleThemePress },
     lang: { selectedLang, handleLangPress },
-
 }: SidebarProps) => {
-    return (
+    const [isVisible, setIsVisible] = useState(false)
+    const toggleVisibility = () => setIsVisible(prevVisible => !prevVisible)
+
+    const RenderHamburger = () => (
+        <HamburgerContainer onClick={toggleVisibility} isVisible={isVisible}>
+            <Hamburger
+                strokeWidth={4}
+                height={HAMBURGER_SIZE}
+                width={HAMBURGER_SIZE}
+            />
+        </HamburgerContainer>
+    )
+
+    return isVisible ? (
         <Container>
+            <RenderHamburger />
             <ItemContainer>
                 <Switch
                     checked={selectedTheme === theme.dark}
@@ -59,5 +95,5 @@ export const Sidebar = ({
                 />
             </ItemContainer>
         </Container>
-    )
+    ) : <RenderHamburger />
 }
