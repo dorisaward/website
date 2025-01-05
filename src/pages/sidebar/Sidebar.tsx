@@ -9,7 +9,7 @@ const SWITCH_WIDTH = '120px'
 const MOBILE_WIDTH = '480px'
 const HAMBURGER_SIZE = 24
 
-const Container = styled.div`
+const Container = styled.div<{ isVisible: boolean }>`
     background: ${({ theme }) => theme.secondaryColour };
     display: flex;
     flex-wrap: wrap;
@@ -19,14 +19,12 @@ const Container = styled.div`
     top: 0;
     bottom: 0;
     padding-top: ${HAMBURGER_SIZE}px;
+    margin-left: ${({ isVisible }) => (isVisible ? 0 : -100) + '%'};
+    transition: margin-left 0.1s;
     @media only screen and (min-width: ${MOBILE_WIDTH}) {
         width: ${SWITCH_WIDTH};
         height: unset;
-    }
-    animation: slideIn 0.1s;
-    @keyframes slideIn {
-        from { margin-left: -100%; }
-        to { margin-left: 0; }
+        margin-left: ${({ isVisible }) => (isVisible ? 0 : '-' + SWITCH_WIDTH)};
     }
 `
 const HamburgerContainer = styled.div<{ isVisible: boolean }>`
@@ -34,14 +32,11 @@ const HamburgerContainer = styled.div<{ isVisible: boolean }>`
     padding: ${({theme}) => theme.padding};
     width: ${HAMBURGER_SIZE}px;
     height: ${HAMBURGER_SIZE}px;
-    left: 0; // on mobile stays at top left
     position: absolute;
     top: 0;
-
+    margin-left: ${({ isVisible }) => (isVisible ? 0 : 100) + '%'};
     @media only screen and (min-width: ${MOBILE_WIDTH}) {
-        ${({isVisible}) => isVisible && {
-            left: SWITCH_WIDTH, // moves with sidebar
-        }
+        margin-left: ${SWITCH_WIDTH};
     }
 `
 const ItemContainer = styled.div`
@@ -77,8 +72,8 @@ export const Sidebar = ({
         </HamburgerContainer>
     )
 
-    return isVisible ? (
-        <Container>
+    return (
+        <Container isVisible={isVisible}>
             <RenderHamburger />
             <ItemContainer>
                 <Switch
@@ -95,5 +90,5 @@ export const Sidebar = ({
                 />
             </ItemContainer>
         </Container>
-    ) : <RenderHamburger />
+    )
 }
