@@ -1,6 +1,8 @@
-import styled, { useTheme } from "styled-components"
-import { Daw } from "../../assets/Daw"
-import { getText } from "../../assets/languages"
+import { use } from 'react'
+import styled, { useTheme } from 'styled-components'
+import { Daw } from '../../assets/Daw'
+import { LanguagesContext } from '../../languages/LanguagesContext.ts'
+
 
 const Text = styled.p`
     color: ${({ theme }) => theme.fontColour}
@@ -8,6 +10,8 @@ const Text = styled.p`
 
 export const Home = () => {
     const theme = useTheme()
+    const { getText } = use(LanguagesContext)
+
     return (
         <>
             <Daw width={'50%'} stroke={theme.fontColour} />

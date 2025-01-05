@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import { darkTheme, lightTheme, theme } from './theme/theme'
 import { Home } from './pages/homepage/Home'
 import { Sidebar } from './pages/sidebar/Sidebar.tsx'
-import { languages, setLanguage, setUpLanguages } from './assets/languages'
+import { LanguagesProvider } from './languages/LanguagesProvider.tsx'
 
 const Container = styled.div`
   position: absolute;
@@ -36,23 +36,18 @@ const displayAnimatedFaviconIfBrowserNotChrome = () => {
 
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState<theme>(theme.light)
-  const [selectedLang, setSelectedLang] = useState<languages>(languages.en)
   useEffect(displayAnimatedFaviconIfBrowserNotChrome)
-  useEffect(setUpLanguages)
 
   const handleThemePress = () => setSelectedTheme(prevTheme => prevTheme === theme.light ? theme.dark : theme.light)
-  const handleLangPress = () => setSelectedLang(prevLang => {
-    const newLang = prevLang === languages.en ? languages.th : languages.en
-    setLanguage(newLang)
-    return newLang
-  })
 
   return (
     <ThemeProvider theme={selectedTheme === theme.light ? lightTheme : darkTheme}>
-      <Container>
-        <Home />
-        <Sidebar theme={{ selectedTheme, handleThemePress }} lang={{ selectedLang, handleLangPress }}/>
-      </Container>
+      <LanguagesProvider>
+        <Container>
+          <Home />
+          <Sidebar theme={{ selectedTheme, handleThemePress }}/>
+        </Container>
+      </LanguagesProvider>
     </ThemeProvider>
   )
 }
