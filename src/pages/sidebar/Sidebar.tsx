@@ -1,9 +1,10 @@
 import styled from 'styled-components'
-import { useState } from 'react'
+import { use, useState } from 'react'
 import { Switch } from '../../assets/Switch.tsx'
-import { languages } from '../../assets/languages.ts'
 import { theme } from '../../theme/theme.ts'
 import { Hamburger } from '../../assets/Hamburger.tsx'
+import { LanguagesContext } from '../../languages/LanguagesContext.ts'
+import { languages } from '../../languages/languages.ts'
 
 const SWITCH_WIDTH = '120px'
 const MOBILE_WIDTH = '480px'
@@ -48,18 +49,14 @@ type SidebarProps = {
     theme: {
         selectedTheme: theme
         handleThemePress: () => void
-    },
-    lang: {
-        selectedLang: languages
-        handleLangPress: () => void
     }
 }
 
 export const Sidebar = ({
-    theme: { selectedTheme, handleThemePress },
-    lang: { selectedLang, handleLangPress },
+    theme: { selectedTheme, handleThemePress }
 }: SidebarProps) => {
     const [isVisible, setIsVisible] = useState(false)
+    const { language, handleLangPress } = use(LanguagesContext)
     const toggleVisibility = () => setIsVisible(prevVisible => !prevVisible)
 
     const RenderHamburger = () => (
@@ -84,7 +81,7 @@ export const Sidebar = ({
             </ItemContainer>
             <ItemContainer>
                 <Switch
-                    checked={selectedLang === languages.en}
+                    checked={language === languages.en}
                     onSwitch={handleLangPress}
                     label={{left: 'UK', right: 'TH'}}
                 />
