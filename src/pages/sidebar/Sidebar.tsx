@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { use, useState } from 'react'
+import { Outlet } from 'react-router-dom'
 import { Switch } from '../../assets/Switch.tsx'
 import { theme } from '../../theme/theme.ts'
 import { Hamburger } from '../../assets/Hamburger.tsx'
@@ -9,6 +10,25 @@ import { languages } from '../../languages/languages.ts'
 const SWITCH_WIDTH = '120px'
 const MOBILE_WIDTH = '480px'
 const HAMBURGER_SIZE = 24
+
+const AppContainer = styled.div`
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: ${({ theme }) => theme.backgroundColour};
+    color: ${({ theme }) => theme.fontColour};
+    
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+`
 
 const Container = styled.div<{ isVisible: boolean }>`
     background: ${({ theme }) => theme.secondaryColour };
@@ -70,22 +90,25 @@ export const Sidebar = ({
     )
 
     return (
-        <Container isVisible={isVisible}>
-            <RenderHamburger />
-            <ItemContainer>
-                <Switch
-                    checked={selectedTheme === theme.dark}
-                    onSwitch={handleThemePress}
-                    label={{left: '🌘', right: '☀️'}}
-                />
-            </ItemContainer>
-            <ItemContainer>
-                <Switch
-                    checked={language === languages.en}
-                    onSwitch={handleLangPress}
-                    label={{left: 'UK', right: 'TH'}}
-                />
-            </ItemContainer>
-        </Container>
+        <AppContainer>
+            <Container isVisible={isVisible}>
+                <RenderHamburger />
+                <ItemContainer>
+                    <Switch
+                        checked={selectedTheme === theme.dark}
+                        onSwitch={handleThemePress}
+                        label={{left: '🌘', right: '☀️'}}
+                    />
+                </ItemContainer>
+                <ItemContainer>
+                    <Switch
+                        checked={language === languages.en}
+                        onSwitch={handleLangPress}
+                        label={{left: 'UK', right: 'TH'}}
+                    />
+                </ItemContainer>
+            </Container>
+            <Outlet/>
+        </AppContainer>
     )
 }

@@ -1,28 +1,11 @@
 import { useEffect, useState } from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { darkTheme, lightTheme, theme } from './theme/theme'
 import { Home } from './pages/homepage/Home'
 import { Sidebar } from './pages/sidebar/Sidebar.tsx'
 import { LanguagesProvider } from './languages/LanguagesProvider.tsx'
-
-const Container = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  background-color: ${({ theme }) => theme.backgroundColour};
-  color: ${({ theme }) => theme.fontColour};
-
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-`
+import { ErrorPage } from './pages/error/Error.tsx'
 
 const displayAnimatedFaviconIfBrowserNotChrome = () => {
   const userAgentString = navigator.userAgent
@@ -43,10 +26,14 @@ const App = () => {
   return (
     <ThemeProvider theme={selectedTheme === theme.light ? lightTheme : darkTheme}>
       <LanguagesProvider>
-        <Container>
-          <Home />
-          <Sidebar theme={{ selectedTheme, handleThemePress }}/>
-        </Container>
+        <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<Sidebar theme={{ selectedTheme, handleThemePress }}/>}>
+                <Route index element={<Home />}/>
+                <Route path='*' element={<ErrorPage/>}/>
+              </Route>
+          </Routes>
+        </BrowserRouter>
       </LanguagesProvider>
     </ThemeProvider>
   )
