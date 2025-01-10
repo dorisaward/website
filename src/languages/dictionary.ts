@@ -3,9 +3,11 @@ import { Dictionaries } from './types/Dictionaries.ts'
 
 export const dictionary: Dictionaries = {
     [languages.en]: {
-        'sorry': 'Sorry'
+        'sorry': 'Sorry',
+        'error': 'Nothing to see here'
     },
     [languages.th]: {
-        'sorry': 'ขอโทษ'
+        'sorry': 'ขอโทษ',
+        'error': 'ไม่มีที่นี่'
     },
 }
