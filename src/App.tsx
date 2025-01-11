@@ -6,6 +6,7 @@ import { Home } from './pages/homepage/Home'
 import { Sidebar } from './pages/sidebar/Sidebar.tsx'
 import { LanguagesProvider } from './languages/LanguagesProvider.tsx'
 import { ErrorPage } from './pages/error/Error.tsx'
+import { Cv } from './pages/cv/Cv.tsx'
 
 const displayAnimatedFaviconIfBrowserNotChrome = () => {
   const userAgentString = navigator.userAgent
@@ -30,6 +31,7 @@ const App = () => {
           <Routes>
               <Route path="/" element={<Sidebar theme={{ selectedTheme, handleThemePress }}/>}>
                 <Route index element={<Home />}/>
+                <Route path='cv' element={<Cv/>}/>
                 <Route path='*' element={<ErrorPage/>}/>
               </Route>
           </Routes>
