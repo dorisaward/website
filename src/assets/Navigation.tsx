@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { use } from 'react'
+import { LanguagesContext } from '../languages/LanguagesContext.ts'
 
 const StyledNav = styled.nav`
     display: flex;
@@ -24,10 +26,11 @@ const LinkContainer = styled.div`
 `
 
 export const Navigation = () => {
+    const { getText } = use(LanguagesContext)
     return (
         <StyledNav>
-            <LinkContainer><Link to="/">Home</Link></LinkContainer>
-            <LinkContainer><Link to="/cv">Curriculum Vitae</Link></LinkContainer>
+            <LinkContainer><Link to="/">{getText('home')}</Link></LinkContainer>
+            <LinkContainer><Link to="/cv">{getText('cv')}</Link></LinkContainer>
         </StyledNav>
     )
 }
