@@ -6,6 +6,7 @@ import { theme } from '../../theme/theme.ts'
 import { Hamburger } from '../../assets/Hamburger.tsx'
 import { LanguagesContext } from '../../languages/LanguagesContext.ts'
 import { languages } from '../../languages/languages.ts'
+import { Navigation } from '../../assets/Navigation.tsx'
 
 const SWITCH_WIDTH = '120px'
 const MOBILE_WIDTH = '480px'
@@ -94,13 +95,14 @@ export const Sidebar = ({
             <Container isVisible={isVisible}>
                 <RenderHamburger />
                 <ItemContainer>
+                    <Navigation/>
+                </ItemContainer>
+                <ItemContainer>
                     <Switch
                         checked={selectedTheme === theme.dark}
                         onSwitch={handleThemePress}
                         label={{left: '🌘', right: '☀️'}}
                     />
-                </ItemContainer>
-                <ItemContainer>
                     <Switch
                         checked={language === languages.en}
                         onSwitch={handleLangPress}
