@@ -15,7 +15,7 @@ const StyledNav = styled.nav`
     a:active { text-decoration: none; }
 `
 
-const LinkContainer = styled.div`
+const LinkButton = styled.div`
     padding: ${({theme}) => theme.padding};
     margin: ${({theme}) => theme.padding};
     background-color: ${({theme}) => theme.tertiaryColour};
@@ -29,8 +29,8 @@ export const Navigation = () => {
     const { getText } = use(LanguagesContext)
     return (
         <StyledNav>
-            <LinkContainer><Link to="/">{getText('home')}</Link></LinkContainer>
-            <LinkContainer><Link to="/cv">{getText('cv')}</Link></LinkContainer>
+            <Link to="/"><LinkButton>{getText('home')}</LinkButton></Link>
+            <Link to="/cv"><LinkButton>{getText('cv')}</LinkButton></Link>
         </StyledNav>
     )
 }
