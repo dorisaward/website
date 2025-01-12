@@ -34,7 +34,7 @@ const Container = styled.div<{ isVisible: boolean }>`
     background: ${({ theme }) => theme.secondaryColour };
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
+    position: fixed;
     width: 100%; // mobile-only
     top: 0;
     padding-top: ${HAMBURGER_SIZE + 10}px;
