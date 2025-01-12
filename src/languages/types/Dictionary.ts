@@ -1,4 +1,5 @@
 export type Dictionary = 'sorry'
+    | 'hello'
     | 'error'
     | 'home'
     | 'cv'
