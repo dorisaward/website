@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation renders correctly 1`] = `
+<body>
+  <div>
+    <nav
+      class="sc-blHHSb dxgyhn"
+    >
+      <div
+        to="/"
+      >
+        <div
+          class="sc-gtLWhw SrjuU"
+        />
+      </div>
+      <div
+        to="/cv"
+      >
+        <div
+          class="sc-gtLWhw SrjuU"
+        />
+      </div>
+    </nav>
+  </div>
+</body>
+`;
