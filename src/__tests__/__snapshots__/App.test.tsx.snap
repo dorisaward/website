@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders 1`] = `
+<body>
+  <div>
+    <div>
+      <div>
+        <div
+          path="/"
+        >
+          <div>
+            <button>
+              CHANGE_THEME_BUTTON
+            </button>
+            <p>
+              LIGHT_THEME
+            </p>
+          </div>
+          <div>
+            <div />
+          </div>
+          <div
+            path="cv"
+          >
+            <div />
+          </div>
+          <div
+            path="*"
+          >
+            <p>
+              error
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
