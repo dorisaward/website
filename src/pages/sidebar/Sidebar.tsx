@@ -35,7 +35,7 @@ const Container = styled.div<{ isVisible: boolean }>`
     display: flex;
     flex-wrap: wrap;
     position: fixed;
-    width: 100%; // mobile-only
+    width: 100vw; // mobile-only
     top: 0;
     padding-top: ${HAMBURGER_SIZE + 10}px;
     margin-left: ${({ isVisible }) => (isVisible ? 0 : -100) + '%'};
