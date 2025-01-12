@@ -40,7 +40,7 @@ const Container = styled.div<{ isVisible: boolean }>`
     padding-top: ${HAMBURGER_SIZE + 10}px;
     margin-left: ${({ isVisible }) => (isVisible ? 0 : -100) + '%'};
     transition: margin-left 0.1s;
-    @media only screen and (min-width: ${MOBILE_WIDTH}) {
+    @media only screen and (min-width: ${MOBILE_WIDTH}px) {
         width: ${SWITCH_WIDTH};
         margin-left: ${({ isVisible }) => (isVisible ? 0 : '-' + SWITCH_WIDTH)};
     }
@@ -53,7 +53,7 @@ const HamburgerContainer = styled.div<{ isVisible: boolean }>`
     position: absolute;
     top: 0;
     margin-left: ${({ isVisible }) => (isVisible ? 0 : 100) + '%'};
-    @media only screen and (min-width: ${MOBILE_WIDTH}) {
+    @media only screen and (min-width: ${MOBILE_WIDTH}px) {
         margin-left: ${SWITCH_WIDTH};
     }
 `

@@ -1,6 +1,7 @@
 import { use } from 'react'
 import styled from 'styled-components'
 import * as cv from '../../assets/cv.json'
+import { images } from './logos'
 import { LanguagesContext } from '../../languages/LanguagesContext.ts'
 import { languages } from '../../languages/languages.ts'
 import { MOBILE_WIDTH } from '../../assets/constants.ts'
@@ -13,8 +14,20 @@ const Container = styled.div`
 `
 
 const TextContainer = styled.div`
-    max-width: ${MOBILE_WIDTH};
+    max-width: ${MOBILE_WIDTH}px;
     white-space: pre-wrap;
+`
+
+const ImgContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    max-width: ${MOBILE_WIDTH - 50}px;
+`
+
+const StyledImg = styled.img`
+    height: 50px;
+    padding: ${({theme}) => theme.padding};
 `
 
 type CvRow = {
@@ -37,6 +50,9 @@ export const Cv = () => {
                     <p>{text}</p>
                 </TextContainer>
             ))}
+            <ImgContainer>
+                {images.map((image, i) => (<StyledImg key={i} src={image} /> ))}
+            </ImgContainer>
         </Container>
     )
 }
