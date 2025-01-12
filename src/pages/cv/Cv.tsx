@@ -22,7 +22,7 @@ const ImgContainer = styled.div`
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
-    max-width: ${MOBILE_WIDTH - 50}px;
+    max-width: 100vw;
 `
 
 const StyledImg = styled.img`
