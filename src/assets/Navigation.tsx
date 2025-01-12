@@ -7,7 +7,7 @@ const StyledNav = styled.nav`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 70%;
+    height: 100%;
 
     a:link { text-decoration: none; }
     a:visited { text-decoration: none; }

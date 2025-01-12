@@ -7,15 +7,14 @@ import { Hamburger } from '../../assets/Hamburger.tsx'
 import { LanguagesContext } from '../../languages/LanguagesContext.ts'
 import { languages } from '../../languages/languages.ts'
 import { Navigation } from '../../assets/Navigation.tsx'
+import { MOBILE_WIDTH } from '../../assets/constants.ts'
 
 const SWITCH_WIDTH = '120px'
-const MOBILE_WIDTH = '480px'
 const HAMBURGER_SIZE = 24
 
 const AppContainer = styled.div`
     position: absolute;
     top: 0;
-    height: 100%;
     left: 0;
     right: 0;
     text-align: center;
@@ -37,15 +36,12 @@ const Container = styled.div<{ isVisible: boolean }>`
     flex-wrap: wrap;
     position: absolute;
     width: 100%; // mobile-only
-    height: 100%; // mobile-only
     top: 0;
-    bottom: 0;
-    padding-top: ${HAMBURGER_SIZE}px;
+    padding-top: ${HAMBURGER_SIZE + 10}px;
     margin-left: ${({ isVisible }) => (isVisible ? 0 : -100) + '%'};
     transition: margin-left 0.1s;
     @media only screen and (min-width: ${MOBILE_WIDTH}) {
         width: ${SWITCH_WIDTH};
-        height: unset;
         margin-left: ${({ isVisible }) => (isVisible ? 0 : '-' + SWITCH_WIDTH)};
     }
 `
