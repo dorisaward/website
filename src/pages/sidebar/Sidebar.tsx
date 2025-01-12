@@ -62,7 +62,7 @@ const ItemContainer = styled.div`
     flex-basis: ${SWITCH_WIDTH};
 `
 
-type SidebarProps = {
+export type SidebarProps = {
     theme: {
         selectedTheme: theme
         handleThemePress: () => void
