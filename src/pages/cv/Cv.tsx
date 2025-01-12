@@ -9,11 +9,12 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: ${({theme}) => theme.padding};
 `
 
 const TextContainer = styled.div`
     max-width: ${MOBILE_WIDTH};
-    padding: ${({theme}) => theme.padding};
+    white-space: pre-wrap;
 `
 
 type CvRow = {
