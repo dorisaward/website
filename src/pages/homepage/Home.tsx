@@ -19,7 +19,7 @@ export const Home = () => {
         <Container>
             <Daw width={'50%'} stroke={theme.fontColour} />
             <Text>
-                {getText('sorry')}
+                {getText('hello')}
             </Text>
         </Container>
     )
