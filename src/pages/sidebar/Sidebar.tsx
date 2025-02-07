@@ -30,7 +30,7 @@ const AppContainer = styled.div`
     -moz-osx-font-smoothing: grayscale;
 `
 
-const Container = styled.div<{ isVisible: boolean }>`
+const Container = styled.div<{ $isVisible: boolean }>`
     background: ${({ theme }) => theme.secondaryColour };
     display: flex;
     flex-wrap: wrap;
@@ -38,21 +38,21 @@ const Container = styled.div<{ isVisible: boolean }>`
     width: 100vw; // mobile-only
     top: 0;
     padding-top: ${HAMBURGER_SIZE + 10}px;
-    margin-left: ${({ isVisible }) => (isVisible ? 0 : -100) + '%'};
+    margin-left: ${({ $isVisible }) => ($isVisible ? 0 : -100) + '%'};
     transition: margin-left 0.1s;
     @media only screen and (min-width: ${MOBILE_WIDTH}px) {
         width: ${SWITCH_WIDTH};
-        margin-left: ${({ isVisible }) => (isVisible ? 0 : '-' + SWITCH_WIDTH)};
+        margin-left: ${({ $isVisible }) => ($isVisible ? 0 : '-' + SWITCH_WIDTH)};
     }
 `
-const HamburgerContainer = styled.div<{ isVisible: boolean }>`
+const HamburgerContainer = styled.div<{ $isVisible: boolean }>`
     background: white;
     padding: ${({theme}) => theme.padding};
     width: ${HAMBURGER_SIZE}px;
     height: ${HAMBURGER_SIZE}px;
     position: absolute;
     top: 0;
-    margin-left: ${({ isVisible }) => (isVisible ? 0 : 100) + '%'};
+    margin-left: ${({ $isVisible }) => ($isVisible ? 0 : 100) + '%'};
     @media only screen and (min-width: ${MOBILE_WIDTH}px) {
         margin-left: ${SWITCH_WIDTH};
     }
@@ -77,7 +77,7 @@ export const Sidebar = ({
     const toggleVisibility = () => setIsVisible(prevVisible => !prevVisible)
 
     const RenderHamburger = () => (
-        <HamburgerContainer onClick={toggleVisibility} isVisible={isVisible}>
+        <HamburgerContainer onClick={toggleVisibility} $isVisible={isVisible}>
             <Hamburger
                 strokeWidth={4}
                 height={HAMBURGER_SIZE}
@@ -88,7 +88,7 @@ export const Sidebar = ({
 
     return (
         <AppContainer>
-            <Container isVisible={isVisible}>
+            <Container $isVisible={isVisible}>
                 <RenderHamburger />
                 <ItemContainer>
                     <Navigation/>
