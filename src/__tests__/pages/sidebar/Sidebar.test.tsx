@@ -6,13 +6,15 @@ import { MockElementPropsType } from '../../../testHelpers/MockElementPropsType.
 jest.mock('react-router-dom', () => ({
     Outlet: ({ children, ...restProps }: MockElementPropsType) => <div {...restProps}>{children}</div>,
 }))
-
+const switchPreTestId = 'switchTestId'
 jest.mock('../../../assets/Switch.tsx', () => ({
-    Switch: ({ children, ...restProps }: MockElementPropsType) => <div {...restProps}>{children}</div>,
+    Switch: ({ children, ...restProps }: MockElementPropsType<{ label: { left: string, right: string } }>) =>
+        <div data-testid={switchPreTestId + restProps.label.left} {...restProps}>{children}</div>,
 }))
 const hamburgerTestId = 'hamburgerTestId'
 jest.mock('../../../assets/Hamburger.tsx', () => ({
-    Hamburger: ({ children, ...restProps }: MockElementPropsType) => <div data-testid={hamburgerTestId} {...restProps}>{children}</div>,
+    Hamburger: ({ children, ...restProps }: MockElementPropsType) =>
+        <div data-testid={hamburgerTestId} {...restProps}>{children}</div>,
 }))
 jest.mock('../../../assets/Navigation.tsx', () => ({
     Navigation: ({ children, ...restProps }: MockElementPropsType) => <div {...restProps}>{children}</div>,
