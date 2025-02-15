@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar renders 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-blHHSb bOCNnt"
+    >
+      <div
+        class="sc-gtLWhw clhWGd"
+      >
+        <div
+          class="sc-egkSDF iNTvCT"
+        >
+          <div
+            data-testid="hamburgerTestId"
+            height="24"
+            stroke-width="4"
+            width="24"
+          />
+        </div>
+        <div
+          class="sc-fAUdSK eyDKKK"
+        >
+          <div />
+        </div>
+        <div
+          class="sc-fAUdSK eyDKKK"
+        >
+          <div
+            data-testid="switchTestId🌘"
+            label="[object Object]"
+          />
+          <div
+            data-testid="switchTestIdUK"
+            label="[object Object]"
+          />
+        </div>
+      </div>
+      <div />
+    </div>
+  </div>
+</body>
+`;
