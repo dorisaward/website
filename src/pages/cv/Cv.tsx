@@ -44,8 +44,8 @@ export const Cv = () => {
         <Container>
             {language === languages.th && <p>Unfortunately, Thai language is not available</p>}
             <h1>Curriculum Vitae</h1>
-            {cvJson.map(({ heading, text }) => (
-                <TextContainer>
+            {cvJson.map(({ heading, text }, i) => (
+                <TextContainer key={i}>
                     <h2>{heading}</h2>
                     <p>{text}</p>
                 </TextContainer>
