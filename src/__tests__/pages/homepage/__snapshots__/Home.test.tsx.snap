@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-blHHSb jweioB"
+    >
+      <div
+        data-testid="dawTestId"
+        stroke="fontColour"
+        width="50%"
+      />
+      <p
+        class="sc-gtLWhw krnjwF"
+      >
+        testText
+      </p>
+    </div>
+  </div>
+</body>
+`;
