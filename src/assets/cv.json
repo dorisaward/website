@@ -1,20 +1,85 @@
 {
-  "data": [
-    {
-      "heading": "Developer",
-      "text": "Full Stack Developer with 7 years experience writing React Native apps for ios and android and React apps for web.\nIndustry experience in the software development lifecycle (SDLC) in development, decision-making, leading, testing, deploying, bug fixing, and designing user experiences.\nProfessional writer of React Native, React, Typescript, JavaScript, Redux, Realm, HTML5, CSS, PHP; using tools such as Jira, Git, Bitbucket, Trello; and following methodologies such as Agile and SCRUM.\nExperience mentoring less-experienced devs, leading on smaller projects, maintaining legacy systems, decision making of code trajectory, reviewing code to ensure high quality, estimating effort/time required for tasks, supporting non-developer team members such as Product Owners, Scrum Masters, UX/UI Designers.\nExcellent analytical and logical programming skills with a good understanding at the conceptual level."
+  "basics": {
+    "name": "Doris Alisa Ward",
+    "label": "Developer",
+    "email": "dorisaward@gmail.com",
+    "url": "https://dorisward.uk",
+    "phone": "07432682616",
+    "location": {
+      "city": "Bath",
+      "countryCode": "UK"
     },
-    {
-      "heading": "Work Experience",
-      "text": "January 2024 - Current\nDeveloper \nMayden, Bath, UK\nReact.JS and PHP development of new features and information security fixes. Maintenance of legacy systems and implementation of new features. Mentoring devs. Leading on sub-projects. Decision making on trajectory of the frontend codebases.\n\nApril 2020 - December 2023\nDeveloper\nLivingWith, Bath, UK\nFixed bugs and added new features to react-native TS apps. Maintained a high quality code base by following coding standards and kept in mind the flexibility required for improvements in the future. Reviewed and tested code and added unit tests to reduce the likelihood of future bugs.\n\nJuly 2018 - April 2020 \nSoftware Engineer \nLivingMap, Bath, UK\nDeveloped front-end and UI across multiple map products across mobile and desktop platforms. Lead feature development of the Map Management System being delivered by multiple engineers. Development of applications using TypeScript, JavaScript, CSS, React.\n"
-    },
-    {
-      "heading": "Contact",
-      "text": "07432682616\ndorisaward@gmail.com\n3 Whitemore Court,\nBatheaston,\nBath, BA1 7PD\ndorisward.uk\nReferences available on request\n"
-    },
-    {
-      "heading": "Education",
-      "text": "2013 - 2014\nPGCE: Secondary Mathematics\nKeele University\n\n2010 - 2013\nBSc(Hons) Computer Science &\nBSc(Hons) Mathematics Dual Hons\nKeele University\n\n2008 - 2010\n5x A-Levels (B-C Grade)\nJohn Taylor Sixth Form \n\n2003 - 2008\n10x GSCEs(A* - A)\nJohn Taylor High School\n"
-    }
-  ]
+    "summary": "Developer with 7 years experience writing React Native apps for ios and android and React apps for web.\nIndustry experience in the software development lifecycle (SDLC) in development, decision-making, leading, testing, deploying, bug fixing, and designing user experiences.\nProfessional writer of React Native, React, Typescript, JavaScript, Redux, Realm, HTML5, CSS, PHP; using tools such as Jira, Git, Bitbucket, Trello; and following methodologies such as Agile and SCRUM.\nExperience mentoring less-experienced devs, leading on smaller projects, maintaining legacy systems, decision making of code trajectory, reviewing code to ensure high quality, estimating effort/time required for tasks, supporting non-developer team members such as Product Owners, Scrum Masters, UX/UI Designers.\nExcellent analytical and logical programming skills with a good understanding at the conceptual level.",
+    "profiles": [{
+      "network": "LinkedIn",
+      "username": "doris-ward",
+      "url": "https://www.linkedin.com/in/doris-ward-76823971/"
+    },{
+      "network": "github",
+      "username": "dorisaward",
+      "url": "https://github.com/dorisaward"
+    },{
+      "network": "bluesky",
+      "username": "dorisward.uk",
+      "url": "https://bsky.app/profile/dorisward.uk"
+    }]
+  },
+  "work": [{
+    "name": "Mayden",
+    "position": "Developer",
+    "url": "https://mayden.co.uk/",
+    "startDate": "2024-01",
+    "summary": "React.JS and PHP development of new features and information security fixes. Maintenance of legacy systems and implementation of new features. Mentoring devs. Leading on sub-projects. Decision making on trajectory of the frontend codebases."
+  }, {
+    "name": "Living With",
+    "position": "Developer",
+    "url": "https://livingwith.health/",
+    "startDate": "2020-04",
+    "endDate": "2023-12",
+    "summary": "Fixed bugs and added new features to react-native TS apps. Maintained a high quality code base by following coding standards and kept in mind the flexibility required for improvements in the future. Reviewed and tested code and added unit tests to reduce the likelihood of future bugs."
+  }, {
+    "name": "Living Map",
+    "position": "Software Engineer",
+    "url": "https://www.livingmap.com/",
+    "startDate": "2018-07",
+    "endDate": "2020-04",
+    "summary": "Developed front-end and UI across multiple map products across mobile and desktop platforms. Lead feature development of the Map Management System being delivered by multiple engineers. Development of applications using TypeScript, JavaScript, CSS, React."
+  }],
+  "education": [{
+    "institution": "Keele University",
+    "url": "https://www.keele.ac.uk/",
+    "area": "Computer Science & Mathematics",
+    "studyType": "BSc(Hons)",
+    "startDate": "2010",
+    "endDate": "2013"
+  }, {
+    "institution": "Keele University",
+    "url": "https://www.keele.ac.uk/",
+    "area": "PGCE: Secondary Mathematics",
+    "studyType": "Teaching",
+    "startDate": "2013",
+    "endDate": "2014"
+  }],
+  "skills": [{
+    "name": "Development",
+    "level": "Mid-Level",
+    "keywords": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "React Native",
+      "Git",
+      "Jira",
+      "PHP"
+    ]
+  }],
+  "languages": [{
+    "language": "English",
+    "fluency": "Native speaker"
+  }, {
+    "language": "Thai",
+    "fluency": "Beginner"
+  }]
 }
