@@ -1,9 +1,5 @@
 import { CvSchema } from './CvSchema.ts'
-
-type CvRow = {
-    heading: string
-    text: string
-}
+import { CvRow } from './CvRow.ts'
 
 export const transformCv = ({ basics, work, education }: CvSchema): CvRow[] => [
     {

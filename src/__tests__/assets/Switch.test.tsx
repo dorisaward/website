@@ -46,14 +46,14 @@ describe('Switch', () => {
         const { rerender, getByText } = render(
             <Switch checked={false} onSwitch={jest.fn} label={TEST_LABEL}/>
         )
-        // @ts-expect-error
+        // @ts-expect-error TS7053: Element implicitly has an any type because expression of type 'className' can't be used to index type ChildNode
         const firstClass = getByText(TEST_LABEL).nextSibling!['className']
 
         // When
         rerender(<Switch checked={true} onSwitch={jest.fn} label={TEST_LABEL}/>)
 
         // Then
-        // @ts-expect-error
+        // @ts-expect-error TS7053: Element implicitly has an any type because expression of type 'className' can't be used to index type ChildNode
         const secondClass = getByText(TEST_LABEL).nextSibling!['className']
         expect(firstClass).not.toEqual(secondClass)
     })
