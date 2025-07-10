@@ -1,36 +1,36 @@
-import styled from 'styled-components'
+import { PropsWithChildren } from 'react'
 
-const StyledLabel = styled.label<{ checked: boolean }>`  
-    cursor: pointer;
-    text-indent: -9999px;
-    width: 50px;
-    height: 25px;
-    background: ${({ checked, theme }) => (checked ? theme.switchOnColour : theme.switchOffColour)};
-    display: block;
-    border-radius: 20px;
-    position: relative;&:after {
-        content: "";
-        position: absolute;
-        left: ${({ checked }) => (checked ? "7px" : "calc(55% - 3px)")};
-        top: 3px;
-        width: 20px;
-        height: 20px;
-        background: ${({ theme }) => theme.backgroundColour};
-        border-radius: 18px;
-        transition: 0.3s;
-    }
-`
+const StyledLabel = ({ children, ...props }: PropsWithChildren) => <label {...props}>{children}</label>// styled.label<{ checked: boolean }>`
+//     cursor: pointer;
+//     text-indent: -9999px;
+//     width: 50px;
+//     height: 25px;
+//     background: ${({ checked, theme }) => (checked ? theme.switchOnColour : theme.switchOffColour)};
+//     display: block;
+//     border-radius: 20px;
+//     position: relative;&:after {
+//         content: "";
+//         position: absolute;
+//         left: ${({ checked }) => (checked ? "7px" : "calc(55% - 3px)")};
+//         top: 3px;
+//         width: 20px;
+//         height: 20px;
+//         background: ${({ theme }) => theme.backgroundColour};
+//         border-radius: 18px;
+//         transition: 0.3s;
+//     }
+// `
 
-const Container = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-`
+const Container = ({ children }: PropsWithChildren) => <div>{children}</div>// styled.div`
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     justify-content: center;
+// `
 
-const Text = styled.p`
-    padding: ${({ theme }) => theme.padding}
-`
+const Text = ({ children }: PropsWithChildren) => <p>{children}</p>// styled.p`
+//     padding: ${({ theme }) => theme.padding}
+// `
 
 type SwitchProps = {
     checked: boolean,

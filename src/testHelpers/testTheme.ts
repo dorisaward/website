@@ -1,4 +1,4 @@
-import { DefaultTheme } from 'styled-components'
+import { DefaultTheme } from '../theme/DefaultTheme.ts'
 
 export const testTheme: DefaultTheme = {
     backgroundColour: 'backgroundColour',

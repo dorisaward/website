@@ -4,7 +4,6 @@ import { render } from '@testing-library/react'
 import { MockLanguagesProvider } from '../../../testHelpers/MockLanguagesProvider.tsx'
 import { Home } from '../../../pages/homepage/Home.tsx'
 import { testTheme } from '../../../testHelpers/testTheme.ts'
-import { ThemeProvider } from 'styled-components'
 import { MockElementPropsType } from '../../../testHelpers/MockElementPropsType.ts'
 
 jest.mock('../../../assets/Daw.tsx', () => ({
@@ -23,11 +22,11 @@ describe('Home', () => {
 
         // When
         const { getByText, getByTestId, baseElement } = render(
-            <ThemeProvider theme={testTheme}>
+            // <ThemeProvider theme={testTheme}>
                 <MockLanguagesProvider value={value}>
                     <Home/>
                 </MockLanguagesProvider>
-            </ThemeProvider>
+            // </ThemeProvider>
         )
 
         // Then

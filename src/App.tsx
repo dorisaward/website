@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { ThemeProvider } from 'styled-components'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { darkTheme, lightTheme, theme } from './theme/theme'
 import { Home } from './pages/homepage/Home.tsx'
@@ -24,8 +23,9 @@ const App = () => {
 
   const handleThemePress = () => setSelectedTheme(prevTheme => prevTheme === theme.light ? theme.dark : theme.light)
 
+  // <ThemeProvider theme={selectedTheme === theme.light ? lightTheme : darkTheme}>
+  // </ThemeProvider>
   return (
-    <ThemeProvider theme={selectedTheme === theme.light ? lightTheme : darkTheme}>
       <LanguagesProvider>
         <BrowserRouter>
           <Routes>
@@ -37,7 +37,6 @@ const App = () => {
           </Routes>
         </BrowserRouter>
       </LanguagesProvider>
-    </ThemeProvider>
   )
 }
 

@@ -1,4 +1,4 @@
-import { DefaultTheme } from 'styled-components'
+import { DefaultTheme } from './DefaultTheme.ts'
 
 export enum theme {
     light = 'LIGHT_THEME',
