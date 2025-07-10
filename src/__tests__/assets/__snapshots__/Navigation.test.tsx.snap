@@ -4,20 +4,20 @@ exports[`Navigation renders correctly 1`] = `
 <body>
   <div>
     <nav
-      class="sc-blHHSb dxgyhn"
+      class="flex flex-col justify-evenly h-full"
     >
       <div
         to="/"
       >
         <div
-          class="sc-gtLWhw SrjuU"
+          class="p-1 m-2 bg-3 rounded-md shadow-chocolate active:shadow-none"
         />
       </div>
       <div
         to="/cv"
       >
         <div
-          class="sc-gtLWhw SrjuU"
+          class="p-1 m-2 bg-3 rounded-md shadow-chocolate active:shadow-none"
         />
       </div>
     </nav>

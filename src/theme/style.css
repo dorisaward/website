@@ -1,0 +1,20 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-1: #CCE6FF;
+    --color-2: #FFCCE6;
+    --color-3: #E6FFCC;
+    --spacing-narrow: 480px;
+    --shadow-chocolate: 0 1px 1px chocolate;
+}
+
+.dark {
+    --color-1: #214269;
+    --color-2: #692142;
+    --color-3: #426921;
+}

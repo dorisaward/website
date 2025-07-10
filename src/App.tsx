@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react'
-import { ThemeProvider } from 'styled-components'
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { darkTheme, lightTheme, theme } from './theme/theme'
 import { Home } from './pages/homepage/Home.tsx'
 import { Sidebar } from './pages/sidebar/Sidebar.tsx'
 import { LanguagesProvider } from './languages/LanguagesProvider.tsx'
@@ -19,17 +17,15 @@ const displayAnimatedFaviconIfBrowserNotChrome = () => {
 }
 
 const App = () => {
-  const [selectedTheme, setSelectedTheme] = useState<theme>(theme.light)
   useEffect(displayAnimatedFaviconIfBrowserNotChrome)
 
-  const handleThemePress = () => setSelectedTheme(prevTheme => prevTheme === theme.light ? theme.dark : theme.light)
+  const handleThemePress = () => document.documentElement.classList.toggle('dark')
 
   return (
-    <ThemeProvider theme={selectedTheme === theme.light ? lightTheme : darkTheme}>
       <LanguagesProvider>
         <BrowserRouter>
           <Routes>
-              <Route path="/" element={<Sidebar theme={{ selectedTheme, handleThemePress }}/>}>
+              <Route path="/" element={<Sidebar handleThemePress={handleThemePress}/>}>
                 <Route index element={<Home />}/>
                 <Route path='cv' element={<Cv/>}/>
                 <Route path='*' element={<ErrorPage/>}/>
@@ -37,7 +33,6 @@ const App = () => {
           </Routes>
         </BrowserRouter>
       </LanguagesProvider>
-    </ThemeProvider>
   )
 }
 

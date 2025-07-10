@@ -1,34 +1,20 @@
-import { use } from 'react'
-import styled from 'styled-components'
+import { PropsWithChildren, use } from 'react'
 import * as cv from '../../assets/cv.json'
 import { images } from './logos'
 import { LanguagesContext } from '../../languages/LanguagesContext.ts'
 import { languages } from '../../languages/languages.ts'
-import { MOBILE_WIDTH } from '../../assets/constants.ts'
 
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: ${({theme}) => theme.padding};
-`
+const Container = ({ children }: PropsWithChildren) =>
+  <div className={'flex flex-col items-center m-5'}>{children}</div>
 
-const TextContainer = styled.div`
-    max-width: ${MOBILE_WIDTH}px;
-    white-space: pre-wrap;
-`
+const TextContainer = ({ children }: PropsWithChildren) =>
+  <div className={'max-w-narrow whitespace-pre-wrap m-5'}>{children}</div>
 
-const ImgContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-    max-width: 100vw;
-`
+const ImgContainer = ({ children }: PropsWithChildren) =>
+  <div className={'flex flex-row overflow-x-scroll max-w-screen'}>{children}</div>
 
-const StyledImg = styled.img`
-    height: 50px;
-    padding: ${({theme}) => theme.padding};
-`
+const StyledImg = ({ children, ...props }: PropsWithChildren<Pick<HTMLImageElement, 'src'>>) =>
+  <img {...props} className={'h-12 p-1'} alt={props.src + ' logo'}>{children}</img>
 
 type CvRow = {
     heading: string
@@ -43,11 +29,11 @@ export const Cv = () => {
     return (
         <Container>
             {language === languages.th && <p>Unfortunately, Thai language is not available</p>}
-            <h1>Curriculum Vitae</h1>
+            <h1 className={'text-3xl font-bold text-black dark:text-white'}>Curriculum Vitae</h1>
             {cvJson.map(({ heading, text }, i) => (
                 <TextContainer key={i}>
-                    <h2>{heading}</h2>
-                    <p>{text}</p>
+                    <h2 className={'text-2xl font-semibold text-black dark:text-white m-5'}>{heading}</h2>
+                    <p className={'text-black dark:text-white'}>{text}</p>
                 </TextContainer>
             ))}
             <ImgContainer>

@@ -1,29 +1,12 @@
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import { use } from 'react'
+import { PropsWithChildren, use } from 'react'
 import { LanguagesContext } from '../languages/LanguagesContext.ts'
 
-const StyledNav = styled.nav`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 100%;
+const StyledNav = ({ children }: PropsWithChildren) =>
+  <nav className={'flex flex-col justify-evenly h-full'}>{children}</nav>
 
-    a:link { text-decoration: none; }
-    a:visited { text-decoration: none; }
-    a:hover { text-decoration: none; }
-    a:active { text-decoration: none; }
-`
-
-const LinkButton = styled.div`
-    padding: ${({theme}) => theme.padding};
-    margin: ${({theme}) => theme.padding};
-    background-color: ${({theme}) => theme.tertiaryColour};
-    border-radius: ${({theme}) => theme.padding};
-    box-shadow: ${({theme}) => '1px 1px ' + theme.shadowColour};
-
-    &:active { box-shadow: unset; }
-`
+const LinkButton = ({ children }: PropsWithChildren) =>
+  <div className={'p-1 m-2 bg-3 rounded-md shadow-chocolate active:shadow-none'}>{children}</div>
 
 export const Navigation = () => {
     const { getText } = use(LanguagesContext)
