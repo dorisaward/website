@@ -1,13 +1,14 @@
 import { PropsWithChildren } from 'react'
 
-const StyledLabel = ({ children, ...props }: PropsWithChildren) => <label {...props}>{children}</label>// styled.label<{ checked: boolean }>`
-//     cursor: pointer;
-//     text-indent: -9999px;
-//     width: 50px;
-//     height: 25px;
+const StyledLabel = ({ children, ...props }: PropsWithChildren<Pick<HTMLLabelElement, 'htmlFor'> & { checked: boolean }>) =>
+  <label
+    className={'w-12 h-6 block rounded-3xl cursor-pointer indent-(-9999px) relative after:absolute after:w-5 after:h-5 after:rounded-2xl after:left-2 after:top-1'}
+    {...props}
+  >
+      {children}
+  </label>
+
 //     background: ${({ checked, theme }) => (checked ? theme.switchOnColour : theme.switchOffColour)};
-//     display: block;
-//     border-radius: 20px;
 //     position: relative;&:after {
 //         content: "";
 //         position: absolute;
@@ -21,16 +22,11 @@ const StyledLabel = ({ children, ...props }: PropsWithChildren) => <label {...pr
 //     }
 // `
 
-const Container = ({ children }: PropsWithChildren) => <div>{children}</div>// styled.div`
-//     display: flex;
-//     flex-direction: row;
-//     align-items: center;
-//     justify-content: center;
-// `
+const Container = ({ children }: PropsWithChildren) =>
+  <div className={'flex flex-row items-center justify-center'}>{children}</div>
 
-const Text = ({ children }: PropsWithChildren) => <p>{children}</p>// styled.p`
-//     padding: ${({ theme }) => theme.padding}
-// `
+const Text = ({ children }: PropsWithChildren) =>
+  <p className={'p-1'}>{children}</p>
 
 type SwitchProps = {
     checked: boolean,

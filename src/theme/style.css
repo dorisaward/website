@@ -9,7 +9,8 @@
     --color-1: #CCE6FF;
     --color-2: #FFCCE6;
     --color-3: #E6FFCC;
-
+    --spacing-narrow: 480px;
+    --shadow-chocolate: 0 1px 1px chocolate;
 }
 
 .dark {

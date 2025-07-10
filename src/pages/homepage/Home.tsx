@@ -3,10 +3,10 @@ import { Daw } from '../../assets/Daw'
 import { LanguagesContext } from '../../languages/LanguagesContext.ts'
 
 const Container = ({ children }: PropsWithChildren) =>
-  <div className={'h-screen'}>{children}</div>
+  <div className={'h-screen flex flex-col items-center justify-evenly'}>{children}</div>
 
 const Text = ({ children }: PropsWithChildren) =>
-  <p className={'text-black dark:text-white'}>{children}</p>
+  <p className={'text-xl text-black dark:text-white'}>{children}</p>
 
 export const Home = () => {
   const { getText } = use(LanguagesContext)
