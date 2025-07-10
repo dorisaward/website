@@ -14,7 +14,8 @@
     "aws-amplify": "^6.10.3",
     "jest-environment-jsdom": "^29.7.0",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "react-switch": "^7.1.0"
   },
   "devDependencies": {
     "@aws-amplify/backend": "^1.10.0",

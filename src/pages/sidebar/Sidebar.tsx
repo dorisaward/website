@@ -38,8 +38,13 @@ export const Sidebar = ({
                           handleThemePress
                         }: SidebarProps) => {
   const [isVisible, setIsVisible] = useState(false)
+  const [isLightMode, setIsLightMode] = useState(true)
   const { language, handleLangPress } = use(LanguagesContext)
   const toggleVisibility = () => setIsVisible(prevVisible => !prevVisible)
+  const toggleThemePress = () => {
+    setIsLightMode(prev => !prev)
+    handleThemePress()
+  }
 
   const RenderHamburger = () => (
     <HamburgerContainer onClick={toggleVisibility}>
@@ -61,8 +66,8 @@ export const Sidebar = ({
           </ItemContainer>
           <ItemContainer>
             <Switch
-              checked={true}
-              onSwitch={handleThemePress}
+              checked={isLightMode}
+              onSwitch={toggleThemePress}
               label={{ left: '🌘', right: '☀️' }}
             />
             <Switch
