@@ -4,38 +4,17 @@ exports[`Sidebar renders 1`] = `
 <body>
   <div>
     <div
-      class="sc-blHHSb bOCNnt"
+      class="absolute top-0 left-0 right-0 bg-1 text-center text-base"
     >
       <div
-        class="sc-gtLWhw clhWGd"
+        class="bg-white absolute top-0 z-1 p-1 w-24px h-24px"
       >
         <div
-          class="sc-egkSDF iNTvCT"
-        >
-          <div
-            data-testid="hamburgerTestId"
-            height="24"
-            stroke-width="4"
-            width="24"
-          />
-        </div>
-        <div
-          class="sc-fAUdSK eyDKKK"
-        >
-          <div />
-        </div>
-        <div
-          class="sc-fAUdSK eyDKKK"
-        >
-          <div
-            data-testid="switchTestId🌘"
-            label="[object Object]"
-          />
-          <div
-            data-testid="switchTestIdUK"
-            label="[object Object]"
-          />
-        </div>
+          data-testid="hamburgerTestId"
+          height="24"
+          stroke-width="4"
+          width="24"
+        />
       </div>
       <div />
     </div>

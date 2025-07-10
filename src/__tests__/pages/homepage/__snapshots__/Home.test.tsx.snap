@@ -4,15 +4,15 @@ exports[`Home renders 1`] = `
 <body>
   <div>
     <div
-      class="sc-blHHSb jweioB"
+      class="h-screen flex flex-col items-center justify-evenly"
     >
       <div
         data-testid="dawTestId"
-        stroke="fontColour"
+        stroke="black"
         width="50%"
       />
       <p
-        class="sc-gtLWhw krnjwF"
+        class="text-xl text-black dark:text-white"
       >
         testText
       </p>

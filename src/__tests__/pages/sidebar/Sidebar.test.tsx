@@ -1,6 +1,5 @@
 import { fireEvent, render } from '@testing-library/react'
-import { Sidebar, SidebarProps } from '../../../pages/sidebar/Sidebar.tsx'
-import { theme } from '../../../theme/theme.ts'
+import { Sidebar } from '../../../pages/sidebar/Sidebar.tsx'
 import { MockElementPropsType } from '../../../testHelpers/MockElementPropsType.ts'
 
 jest.mock('react-router-dom', () => ({
@@ -23,13 +22,10 @@ jest.mock('../../../assets/Navigation.tsx', () => ({
 describe('Sidebar', () => {
     it('renders', () => {
         // Given
-        const themeProps: SidebarProps['theme'] = {
-            selectedTheme: theme.light,
-            handleThemePress: jest.fn(),
-        }
+        const handleThemePress = jest.fn()
 
         // When
-        const { baseElement } = render(<Sidebar theme={themeProps}/>)
+        const { baseElement } = render(<Sidebar handleThemePress={handleThemePress}/>)
 
         // Then
         expect(baseElement).toMatchSnapshot()
@@ -37,11 +33,8 @@ describe('Sidebar', () => {
 
     it('hides', () => {
         // Given
-        const themeProps: SidebarProps['theme'] = {
-            selectedTheme: theme.light,
-            handleThemePress: jest.fn(),
-        }
-        const { getByTestId } = render(<Sidebar theme={themeProps}/>)
+        const handleThemePress = jest.fn()
+        const { getByTestId } = render(<Sidebar handleThemePress={handleThemePress}/>)
         const hamburgerElement = getByTestId(hamburgerTestId)
         const classNameBefore = hamburgerElement.parentElement?.className
 
