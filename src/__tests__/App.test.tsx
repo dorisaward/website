@@ -22,7 +22,7 @@ jest.mock('../pages/cv/Cv.tsx', () => ({
 jest.mock('react-router-dom', () => ({
     BrowserRouter: ({ children, ...restProps }: MockElementPropsType) => <div {...restProps}>{children}</div>,
     Routes: ({ children, ...restProps }: MockElementPropsType) => <div {...restProps}>{children}</div>,
-    Route: ({ children, element, ...restProps }: MockElementPropsType<{element?: ReactNode}>) => (
+    Route: ({ children, element, ...restProps }: MockElementPropsType<{element?: ReactNode}>) => element && children && (
         <div {...restProps}>{element}{children}</div>
     ),
 }))

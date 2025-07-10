@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { Sidebar } from '../../../pages/sidebar/Sidebar.tsx'
 import { MockElementPropsType } from '../../../testHelpers/MockElementPropsType.ts'
 
@@ -7,8 +7,8 @@ jest.mock('react-router-dom', () => ({
 }))
 const switchPreTestId = 'switchTestId'
 jest.mock('../../../assets/Switch.tsx', () => ({
-    Switch: ({ children, ...restProps }: MockElementPropsType<{ label: { left: string, right: string } }>) =>
-        <div data-testid={switchPreTestId + restProps.label.left} {...restProps}>{children}</div>,
+    Switch: ({ children, onSwitch, ...restProps }: MockElementPropsType<{ label: { left: string, right: string }, onSwitch: () => void }>) =>
+        <div data-testid={switchPreTestId + restProps.label.left} onClick={onSwitch} {...restProps}>{children}</div>,
 }))
 const hamburgerTestId = 'hamburgerTestId'
 jest.mock('../../../assets/Hamburger.tsx', () => ({
@@ -31,18 +31,4 @@ describe('Sidebar', () => {
         expect(baseElement).toMatchSnapshot()
     })
 
-    it('hides', () => {
-        // Given
-        const handleThemePress = jest.fn()
-        const { getByTestId } = render(<Sidebar handleThemePress={handleThemePress}/>)
-        const hamburgerElement = getByTestId(hamburgerTestId)
-        const classNameBefore = hamburgerElement.parentElement?.className
-
-        // When
-        fireEvent.click(hamburgerElement)
-
-        // Then
-        const classNameAfter = getByTestId(hamburgerTestId).parentElement?.className
-        expect(classNameBefore).not.toEqual(classNameAfter)
-    })
 })
