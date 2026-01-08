@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cv renders, given language english 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-blHHSb jMgSmr"
+    >
+      <h1>
+        Curriculum Vitae
+      </h1>
+      <div
+        class="sc-gtLWhw iREGgd"
+      >
+        <h2>
+          label
+        </h2>
+        <p>
+          basic summary
+        </p>
+      </div>
+      <div
+        class="sc-gtLWhw iREGgd"
+      >
+        <h2>
+          Work
+        </h2>
+        <p>
+          work name - work url
+work start - Current
+position
+work summary
+        </p>
+      </div>
+      <div
+        class="sc-gtLWhw iREGgd"
+      >
+        <h2>
+          Contact
+        </h2>
+        <p>
+          email
+url
+phone
+city, country
+References available on request
+        </p>
+      </div>
+      <div
+        class="sc-gtLWhw iREGgd"
+      >
+        <h2>
+          Education
+        </h2>
+        <p>
+          edu start - edu end
+study - area
+institution - edu url
+        </p>
+      </div>
+      <div
+        class="sc-egkSDF dzeDsK"
+      >
+        <img
+          class="sc-fAUdSK ldTxjN"
+          src="[object Object]"
+        />
+        <img
+          class="sc-fAUdSK ldTxjN"
+          src="[object Object]"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Cv renders, given language thai 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-blHHSb jMgSmr"
+    >
+      <p>
+        Unfortunately, Thai language is not available
+      </p>
+      <h1>
+        Curriculum Vitae
+      </h1>
+      <div
+        class="sc-gtLWhw iREGgd"
+      >
+        <h2>
+          label
+        </h2>
+        <p>
+          basic summary
+        </p>
+      </div>
+      <div
+        class="sc-gtLWhw iREGgd"
+      >
+        <h2>
+          Work
+        </h2>
+        <p>
+          work name - work url
+work start - Current
+position
+work summary
+        </p>
+      </div>
+      <div
+        class="sc-gtLWhw iREGgd"
+      >
+        <h2>
+          Contact
+        </h2>
+        <p>
+          email
+url
+phone
+city, country
+References available on request
+        </p>
+      </div>
+      <div
+        class="sc-gtLWhw iREGgd"
+      >
+        <h2>
+          Education
+        </h2>
+        <p>
+          edu start - edu end
+study - area
+institution - edu url
+        </p>
+      </div>
+      <div
+        class="sc-egkSDF dzeDsK"
+      >
+        <img
+          class="sc-fAUdSK ldTxjN"
+          src="[object Object]"
+        />
+        <img
+          class="sc-fAUdSK ldTxjN"
+          src="[object Object]"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;

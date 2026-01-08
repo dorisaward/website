@@ -1,10 +1,12 @@
-import { use } from 'react'
+import { use, useEffect, useOptimistic } from 'react'
 import styled from 'styled-components'
-import * as cv from '../../assets/cv.json'
+import * as cvJson from '../../assets/cv.json'
 import { images } from './logos'
 import { LanguagesContext } from '../../languages/LanguagesContext.ts'
 import { languages } from '../../languages/languages.ts'
 import { MOBILE_WIDTH } from '../../assets/constants.ts'
+import { transformCv } from './transformCv.ts'
+import { getCvFromBucket } from './getCvFromBucket.ts'
 
 const Container = styled.div`
     display: flex;
@@ -30,21 +32,24 @@ const StyledImg = styled.img`
     padding: ${({theme}) => theme.padding};
 `
 
-type CvRow = {
-    heading: string
-    text: string
-}
-
 export const Cv = () => {
     const { language } = use(LanguagesContext)
-
-    const cvJson: Array<CvRow> = cv.data
+    const [optimisticCv, setOptimisticCv] = useOptimistic(transformCv(cvJson))
+    useEffect(() => {
+        getCvFromBucket().then(result => {
+            if (typeof result === 'string') {
+                console.error(result)
+            } else {
+                setOptimisticCv(result)
+            }
+        })
+    })
 
     return (
         <Container>
             {language === languages.th && <p>Unfortunately, Thai language is not available</p>}
             <h1>Curriculum Vitae</h1>
-            {cvJson.map(({ heading, text }, i) => (
+            {optimisticCv.map(({ heading, text }, i) => (
                 <TextContainer key={i}>
                     <h2>{heading}</h2>
                     <p>{text}</p>
